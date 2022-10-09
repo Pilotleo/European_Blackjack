@@ -57,5 +57,5 @@ if p_sts['Split_available'] == 'Y' and p_sts['card_ACE']>0: #AA對拆完補牌�
         
         simulation['p1_1_sts']=simulation['p1_1'].apply(lambda row:bf_sts_cal([row][0],bet))
         
-**        simulation['p1_sts']=simulation['p1'].apply(lambda row:bf_sts_cal([row][0],bet))
-**
+        simulation['p1_sts']=simulation['p1'].apply(lambda row:bf_sts_cal([row][0],bet))
+
