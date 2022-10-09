@@ -40,5 +40,14 @@
   
   6.Surrender                            可以就認輸(拿回一半的bet)，可以不用等莊家就寫完這把牌局結果。(可以的條件是一般拆的牌，或是還沒有要過牌)
   
-##5.
-在判斷式if裡面的lambda還是會執行完整個Dataframe嗎？還是只會執行符合我條件的？
+## 5.
+在判斷式if裡面的lambda還是會執行完整個Dataframe嗎？還是只會執行符合我條件的？例如以下這樣
+
+if p_sts['Split_available'] == 'Y' and p_sts['card_ACE']>0: #AA對拆完補牌後就結束
+        simulation['p1_1']=simulation['p1'].apply(lambda row:row[0])
+        del pop_card('p1',1)
+        simulation['p1_1']=simulation['card_slot'].apply(lambda row:row[0])
+        simulation['p1']=simulation['card_slot'].apply(lambda row:row[1])
+        del pop_card('card_slot',2)
+        simulation['p1_1_sts']=simulation['p1_1'].apply(lambda row:bf_sts_cal([row][0],bet))
+        simulation['p1_sts']=simulation['p1'].apply(lambda row:bf_sts_cal([row][0],bet))
