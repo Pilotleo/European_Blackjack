@@ -23,9 +23,28 @@
 
 ## 2.
  **也想要知道怎麼可以篩出全部的'BJ'或是統計'BJ'有幾種結果，這個在後面計算結果也需要用到。**
+ 
+ -->要另外寫function計算，例如
+ 
+ def count_BJ(p1_sts):
+    if(p1_sts['BJ'] == 'Y'):
+        return 1
+    else:
+        return 0
+    
+simulation['BJ_times'] =  simulation['p1_sts'].apply(lambda row:count_BJ(row))
+simulation['BJ_times'] +=  simulation['p2_sts'].apply(lambda row:count_BJ(row))
+simulation['BJ_times'] +=  simulation['p3_sts'].apply(lambda row:count_BJ(row))
+
+print(simulation['BJ_times'].sum())
+ 
 ## 3.
  **請幫忙檢查已完成的地方是否有符合正確使用dataframe的方式，或有沒有效能有問題的地方。**
-## 4.  
+## 4.
+**** 新增問題 ****
+function split裡面
+
+## 5.
 接下來要寫打法表了，打法表總共會有六種Output跟往下的分支，
   ![Collage Maker-06-Oct-2022-09 02-AM](https://user-images.githubusercontent.com/19257014/194746188-6a816e3a-0411-4026-a3b0-e6557a29c68c.jpg)
   1.Double if possible,otherwise hit     可以就加倍(bet*2)，不可以就補牌(可以的條件是一般拆的牌，或是還沒有要過牌)
