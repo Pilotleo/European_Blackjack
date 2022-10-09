@@ -42,7 +42,13 @@ print(simulation['BJ_times'].sum())
  **請幫忙檢查已完成的地方是否有符合正確使用dataframe的方式，或有沒有效能有問題的地方。**
 ## 4.
 **** 新增問題 ****
-function split裡面
+function split裡面照剛剛提供的寫法去code會變成無窮迴圈，還是我叫用錯誤？
+
+def add_card(card_slot,p1):
+    newcard = card_slot.pop()
+    p1.append(newcard)
+    
+simulation.apply(lambda row:add_card(row['card_slot'],row['p1']),axis=1)
 
 ## 5.
 接下來要寫打法表了，打法表總共會有六種Output跟往下的分支，
